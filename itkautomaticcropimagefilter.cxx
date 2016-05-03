@@ -21,7 +21,7 @@
       :: FindFirstPixel(const OutputImageRegionType region, unsigned int i) {
         const int N = m_Input->ImageDimension;
         unsigned int j = (i+1) % N;
-        unsigned int k = (i-1) % N;
+        unsigned int k = (N+i-1) % N;
 
         InConstIteratorType it(m_Input, region);
         it.SetFirstDirection(i);
@@ -56,7 +56,7 @@
       :: FindLastPixel(const OutputImageRegionType region, unsigned int i) {
         const int N = m_Input->ImageDimension;
         unsigned int j = (i+1) % N;
-        unsigned int k = (i-1) % N;
+        unsigned int k = (N+i-1) % N;
 
         InConstIteratorType it(m_Input, region);
         it.SetFirstDirection(i);
@@ -103,7 +103,7 @@
 
         m_ImageIndex = m_ImageFirstIndex;
         for (int i=0; i<m_Input->ImageDimension; i++) {
-          m_ImageSize[i] =  m_ImageLastIndex[i] - m_ImageFirstIndex[i];
+          m_ImageSize[i] =  m_ImageLastIndex[i] - m_ImageFirstIndex[i] + 1;
         }
 
         itk::ImageRegion<TInImage::ImageDimension> imageRegion(m_ImageFirstIndex, m_ImageSize);
