@@ -1,5 +1,5 @@
-#ifndef __itkMultiThreadedImageFilter_cxx
-    #define __itkMultiThreadedImageFilter_cxx
+#ifndef __itkAutomaticCropImageFilter_cxx
+    #define __itkAutomaticCropImageFilter_cxx
 
     #include "itkAutomaticCropImageFilter.h"
 
@@ -115,7 +115,6 @@
         output->SetRegions(outImageRegion);
         output->Allocate();
         itk::ImageRegionIterator<TOutImage> outIt(output, outImageRegion);
-        //itk::ImageRegionConstIterator<ImageType> imageIterator(image,image->GetLargestPossibleRegion());
 
         inIt.GoToBegin();
         outIt.GoToBegin();

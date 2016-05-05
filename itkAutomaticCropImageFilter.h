@@ -4,14 +4,12 @@
     #include <mutex>          // std::mutex
     #include <queue>
 
-#include <itkImage.h>
-
-    #include "itkObjectFactory.h"
-    #include "itkImageRegionIterator.h"
-    #include "itkImageRegionConstIterator.h"
-    #include "itkImageToImageFilter.h"
-    #include "itkImageRegionConstIterator.h"
-    #include "itkImageRegionIterator.h"
+    #include <itkImage.h>
+    #include <itkImageRegionIterator.h>
+    #include <itkImageRegionConstIterator.h>
+    #include <itkImageToImageFilter.h>
+    #include <itkImageRegionConstIterator.h>
+    #include <itkImageRegionIterator.h>
     #include <itkImageSliceConstIteratorWithIndex.h>
 
 
@@ -35,6 +33,11 @@
 
                 /** Run-time type information (and related methods). */
                 itkTypeMacro(ImageFilter, ImageToImageFilter);
+
+                /** Method for getting output image index */
+                itkGetMacro(ImageIndex, IndexType);
+                /** Method for getting output image size */
+                itkGetMacro(ImageSize, SizeType);
 
 
             protected:
